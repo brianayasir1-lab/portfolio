@@ -186,40 +186,35 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.15;let
 .role-list li{position:relative;padding-left:1.25rem;color:var(--text-soft);font-size:.95rem;line-height:1.65;}
 .role-list li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--accent);transform:rotate(45deg);}
 .role-tags{margin-top:1.1rem;}
-.skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;align-items:stretch;}
-.skill-card{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:1.4rem;height:100%;display:flex;flex-direction:column;transition:border-color .25s,transform .25s;}
-.skill-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.skill-card-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;}
-.skill-icon{width:38px;height:38px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);}
-.skill-icon.gold{background:var(--accent-soft);color:var(--accent);}
-.skill-icon svg{width:19px;height:19px;stroke:currentColor;}
-.skill-card h3{font-size:.96rem;font-family:var(--font-display);font-weight:600;}
-.cloud-group{margin-bottom:.85rem;}
+.skills-panel{display:grid;gap:0;border:1px solid var(--border-soft);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface);}
+.skill-row{display:grid;grid-template-columns:minmax(180px,260px) minmax(0,1fr);gap:1.25rem 1.75rem;align-items:start;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border-soft);}
+.skill-row:last-child{border-bottom:none;}
+.skill-row:nth-child(even){background:var(--bg-alt);}
+.skill-label{font-family:var(--font-display);font-size:.95rem;font-weight:600;color:var(--text);line-height:1.35;padding-top:.15rem;}
+.skill-row .tag-list{padding-top:.05rem;}
+.cloud-group{margin-bottom:.75rem;}
 .cloud-group:last-child{margin-bottom:0;}
-.cloud-group-label{display:flex;align-items:center;gap:.45rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;}
+.cloud-group-label{display:flex;align-items:center;gap:.45rem;font-family:var(--font-mono);font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.45rem;font-weight:500;}
 .cloud-group-label .sw{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:var(--accent)!important;}
 .layer-gold,.layer-silver,.layer-bronze{fill:var(--accent-soft);stroke:var(--accent);}
-@media (max-width:980px){.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-@media (max-width:620px){.skills-grid{grid-template-columns:1fr;}}
-.projects-list{display:grid;gap:1.25rem;}
-.project-card{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:clamp(1.4rem,3vw,2rem);position:relative;overflow:hidden;}
-.project-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);}
-.project-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;}
-.project-title{font-family:var(--font-display);font-size:1.18rem;font-weight:600;max-width:42ch;}
-.project-list{display:grid;gap:.55rem;margin-bottom:1.1rem;}
-.project-list li{position:relative;padding-left:1.25rem;color:var(--text-soft);font-size:.95rem;line-height:1.65;}
-.project-list li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--accent);transform:rotate(45deg);}
-.credentials-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:1.25rem;align-items:stretch;}
-.cert-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;align-items:stretch;}
-.cert-card,.edu-card{display:flex;gap:1rem;align-items:flex-start;background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius);padding:1.2rem;height:100%;transition:border-color .2s;}
-.cert-card:hover,.edu-card:hover{border-color:var(--accent);}
-.cert-badge{width:42px;height:42px;border-radius:50%;background:var(--accent-soft);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);}
-.cert-badge svg{width:19px;height:19px;stroke:currentColor;}
-.cert-name{font-weight:500;font-size:.92rem;margin-bottom:.25rem;line-height:1.4;}
-.cert-issuer{font-size:.78rem;color:var(--text-dim);font-family:var(--font-mono);}
-@media (max-width:880px){
-  .credentials-grid{grid-template-columns:1fr;}
-  .cert-grid{grid-template-columns:1fr;}
+@media (max-width:720px){
+  .skill-row{grid-template-columns:1fr;gap:.65rem;padding:1.15rem 1.2rem;}
+}
+.credentials-wrap{display:grid;gap:1.5rem;}
+.cred-block-title{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.85rem;}
+.cert-list{display:grid;gap:0;border:1px solid var(--border-soft);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface);}
+.cert-item{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:1rem;align-items:center;padding:1.15rem 1.35rem;border-bottom:1px solid var(--border-soft);}
+.cert-item:last-child{border-bottom:none;}
+.cert-item:nth-child(even){background:var(--bg-alt);}
+.cert-badge{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);border:1px solid rgba(13,155,138,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);}
+.cert-badge svg{width:18px;height:18px;stroke:currentColor;}
+.cert-name{font-weight:600;font-size:.98rem;margin-bottom:.2rem;line-height:1.35;color:var(--text);}
+.cert-issuer{font-size:.8rem;color:var(--text-dim);font-family:var(--font-mono);}
+.cert-mark{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:.35rem .65rem;border-radius:999px;white-space:nowrap;}
+.edu-item{display:grid;grid-template-columns:48px minmax(0,1fr);gap:1rem;align-items:center;padding:1.25rem 1.35rem;border:1px solid var(--border-soft);border-radius:var(--radius-lg);background:var(--surface);}
+@media (max-width:640px){
+  .cert-item{grid-template-columns:42px minmax(0,1fr);gap:.85rem;}
+  .cert-mark{grid-column:2;justify-self:start;margin-top:.15rem;}
 }
 .contact-box{background:var(--bg-alt);border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:clamp(2.1rem,5vw,3.5rem);text-align:center;}
 .contact-title{font-size:clamp(1.65rem,3.2vw,2.4rem);margin-bottom:.85rem;color:var(--text);}
@@ -240,7 +235,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.15;let
   body{background:#fff;color:#111;background-image:none;}
   .section{padding-block:1rem;}
   a{color:#111;}
-  .skill-card,.project-card,.cert-card,.about-card,.edu-card,.contact-box,.stat{border:1px solid #ccc;background:#fff;}
+  .skills-panel,.project-card,.cert-list,.edu-item,.about-card,.contact-box,.stat{border:1px solid #ccc;background:#fff;}
 }
 </style>
 </head>
@@ -442,117 +437,78 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.15;let
         <h2 class="section-title">Technical Toolkit</h2>
         <p class="section-desc">Ten years of tooling, organized the way it actually gets used — from raw scripting to governed, production-grade platforms.</p>
       </div>
-      <div class="skills-grid">
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,7 4,12 9,17"/><polyline points="15,7 20,12 15,17"/></svg></div>
-            <h3>Programming &amp; Scripting</h3>
-          </div>
+      <div class="skills-panel reveal">
+        <div class="skill-row">
+          <div class="skill-label">Programming &amp; Scripting</div>
           <div class="tag-list">
             <span class="tag">Python (ETL Automation, APIs, Data Validation)</span><span class="tag">SQL (Advanced Queries, CTEs, Window Functions)</span><span class="tag">PySpark</span><span class="tag">Scala</span><span class="tag">Java</span><span class="tag">Bash/Shell</span><span class="tag">JSON</span><span class="tag">YAML</span>
           </div>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="12" r="2"/><circle cx="12" cy="5.5" r="2"/><circle cx="12" cy="18.5" r="2"/><circle cx="19.5" cy="12" r="2"/><line x1="6.3" y1="11" x2="10.2" y2="6.8"/><line x1="6.3" y1="13" x2="10.2" y2="17.2"/><line x1="13.8" y1="6.8" x2="17.7" y2="11"/><line x1="13.8" y1="17.2" x2="17.7" y2="13"/></svg></div>
-            <h3>Data Engineering &amp; Orchestration</h3>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label">Data Engineering &amp; Orchestration</div>
           <div class="tag-list">
             <span class="tag">ETL/ELT Pipelines</span><span class="tag">Apache Airflow</span><span class="tag">dbt</span><span class="tag">AWS Glue</span><span class="tag">Azure Data Factory</span><span class="tag">Google Dataflow</span><span class="tag">SSIS</span><span class="tag">Informatica</span><span class="tag">Talend</span><span class="tag">Apache NiFi</span><span class="tag">Great Expectations</span><span class="tag">Palantir Foundry</span><span class="tag">Change Data Capture (CDC)</span><span class="tag">Data Reconciliation</span>
           </div>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,12 6,12 8,5 11,19 14,3 17,15 19,12 22,12"/></svg></div>
-            <h3>Big Data &amp; Streaming</h3>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label">Big Data &amp; Streaming</div>
           <div class="tag-list">
             <span class="tag">Apache Spark</span><span class="tag">Spark SQL</span><span class="tag">Structured Streaming</span><span class="tag">Apache Kafka (Streams, Connect, Schema Registry)</span><span class="tag">Apache Flink</span><span class="tag">AWS Kinesis</span><span class="tag">Google Pub/Sub</span><span class="tag">Azure Event Hubs</span>
           </div>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon gold"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><rect class="layer-gold" x="4" y="3.5" width="16" height="4.2" rx="1"/><rect class="layer-silver" x="4" y="9.9" width="16" height="4.2" rx="1"/><rect class="layer-bronze" x="4" y="16.3" width="16" height="4.2" rx="1"/></svg></div>
-            <h3>Lakehouse, Warehousing &amp; Storage</h3>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label">Lakehouse, Warehousing &amp; Storage</div>
           <div class="tag-list">
             <span class="tag">Databricks</span><span class="tag">Delta Lake</span><span class="tag">Unity Catalog</span><span class="tag">Delta Live Tables</span><span class="tag">Databricks Workflows</span><span class="tag">Databricks SQL</span><span class="tag">Snowflake</span><span class="tag">Snowpark</span><span class="tag">Amazon Redshift</span><span class="tag">Google BigQuery</span><span class="tag">Azure Synapse Analytics</span><span class="tag">Apache Iceberg</span><span class="tag">Palantir Ontology</span><span class="tag">Parquet</span>
           </div>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="7" height="5" rx="1"/><rect x="14.5" y="3.5" width="7" height="5" rx="1"/><rect x="8.5" y="15" width="7" height="5" rx="1"/><line x1="6" y1="8.5" x2="10.7" y2="15"/><line x1="18" y1="8.5" x2="13.3" y2="15"/></svg></div>
-            <h3>Data Architecture &amp; Modeling</h3>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label">Data Architecture &amp; Modeling</div>
           <div class="tag-list">
             <span class="tag">Lakehouse Architecture</span><span class="tag">Medallion Architecture (Bronze/Silver/Gold)</span><span class="tag">Dimensional Modeling</span><span class="tag">Star &amp; Snowflake Schemas</span><span class="tag">Data Vault</span><span class="tag">Kimball &amp; Inmon Methodologies</span><span class="tag">Semantic Layer</span><span class="tag">Data Mesh</span><span class="tag">Data Products</span><span class="tag">Data Platform Modernization</span>
           </div>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-.6-7.96A5.5 5.5 0 0 1 17.4 8.6 4.2 4.2 0 0 1 17 18H7z"/></svg></div>
-            <h3>Cloud Platforms</h3>
-          </div>
-          <div class="cloud-group">
-            <div class="cloud-group-label"><span class="sw" style="background:#FF9900"></span>AWS</div>
-            <div class="tag-list"><span class="tag">S3</span><span class="tag">EMR</span><span class="tag">Glue</span><span class="tag">Lambda</span><span class="tag">Athena</span><span class="tag">EKS</span><span class="tag">IAM</span><span class="tag">CloudWatch</span></div>
-          </div>
-          <div class="cloud-group">
-            <div class="cloud-group-label"><span class="sw" style="background:#3A88CC"></span>Azure</div>
-            <div class="tag-list"><span class="tag">ADLS Gen2</span><span class="tag">ADF</span><span class="tag">AKS</span><span class="tag">Key Vault</span><span class="tag">Azure Monitor</span><span class="tag">Purview</span></div>
-          </div>
-          <div class="cloud-group">
-            <div class="cloud-group-label"><span class="sw" style="background:#4285F4"></span>GCP</div>
-            <div class="tag-list"><span class="tag">Cloud Storage</span><span class="tag">BigQuery</span><span class="tag">Dataflow</span><span class="tag">Composer</span><span class="tag">GKE</span></div>
+        <div class="skill-row">
+          <div class="skill-label">Cloud Platforms</div>
+          <div>
+            <div class="cloud-group">
+              <div class="cloud-group-label"><span class="sw"></span>AWS</div>
+              <div class="tag-list"><span class="tag">S3</span><span class="tag">EMR</span><span class="tag">Glue</span><span class="tag">Lambda</span><span class="tag">Athena</span><span class="tag">EKS</span><span class="tag">IAM</span><span class="tag">CloudWatch</span></div>
+            </div>
+            <div class="cloud-group">
+              <div class="cloud-group-label"><span class="sw"></span>Azure</div>
+              <div class="tag-list"><span class="tag">ADLS Gen2</span><span class="tag">ADF</span><span class="tag">AKS</span><span class="tag">Key Vault</span><span class="tag">Azure Monitor</span><span class="tag">Purview</span></div>
+            </div>
+            <div class="cloud-group">
+              <div class="cloud-group-label"><span class="sw"></span>GCP</div>
+              <div class="tag-list"><span class="tag">Cloud Storage</span><span class="tag">BigQuery</span><span class="tag">Dataflow</span><span class="tag">Composer</span><span class="tag">GKE</span></div>
+            </div>
           </div>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v6c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/><path d="M5 12v6c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-6"/></svg></div>
-            <h3>Databases &amp; NoSQL</h3>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label">Databases &amp; NoSQL</div>
           <div class="tag-list">
             <span class="tag">PostgreSQL</span><span class="tag">SQL Server</span><span class="tag">MySQL</span><span class="tag">Oracle</span><span class="tag">MongoDB</span><span class="tag">DynamoDB</span><span class="tag">Cassandra</span>
           </div>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.9-5.4"/><polyline points="18.5,2.5 17.9,6.6 13.8,6"/><path d="M20 12a8 8 0 0 1-13.9,5.4"/><polyline points="5.5,21.5 6.1,17.4 10.2,18"/></svg></div>
-            <h3>DevOps, MLOps &amp; CI/CD</h3>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label">DevOps, MLOps &amp; CI/CD</div>
           <div class="tag-list">
             <span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Kubernetes (EKS, AKS, GKE)</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">GitLab CI/CD</span><span class="tag">Argo CD</span><span class="tag">GitOps</span><span class="tag">Infrastructure as Code (IaC)</span>
           </div>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 19.5 6v6c0 5-3.2 7.9-7.5 8.8C7.7 19.9 4.5 17 4.5 12V6z"/><polyline points="9,12 11,14.2 15,9.8"/></svg></div>
-            <h3>Data Governance, Quality &amp; Security</h3>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label">Data Governance, Quality &amp; Security</div>
           <div class="tag-list">
             <span class="tag">HIPAA</span><span class="tag">GDPR</span><span class="tag">SOC 2</span><span class="tag">PHI/PII Protection</span><span class="tag">RBAC/ABAC</span><span class="tag">Unity Catalog</span><span class="tag">Data Lineage</span><span class="tag">Data Cataloging</span><span class="tag">Audit Logging</span><span class="tag">Encryption</span><span class="tag">Data Quality Frameworks</span><span class="tag">Data Observability</span><span class="tag">Data Reliability Engineering</span>
           </div>
         </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card-head">
-            <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
-            <h3>Healthcare Data Engineering &amp; AI Enablement</h3>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label">Healthcare Data Engineering &amp; AI Enablement</div>
           <div class="tag-list">
             <span class="tag">Clinical &amp; Claims Data</span><span class="tag">HIPAA-Compliant Data Pipelines</span><span class="tag">Healthcare Analytics</span><span class="tag">ML Pipeline Enablement</span><span class="tag">Feature Engineering</span><span class="tag">LLM/AI Workflow Integration</span><span class="tag">RAG Pipelines</span><span class="tag">AI-Ready Data Platforms</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -624,28 +580,38 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.15;let
         <h2 class="section-title">Certifications &amp; Education</h2>
         <p class="section-desc">Vendor-recognized expertise across the platforms this work runs on.</p>
       </div>
-      <div class="credentials-grid">
-        <div class="cert-grid reveal">
-          <div class="cert-card">
-            <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.3 7 21l5-3 5 3-2-6.7"/></svg></div>
-            <div><div class="cert-name">Databricks Certified Data Engineer Professional</div><div class="cert-issuer">Databricks</div></div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.3 7 21l5-3 5 3-2-6.7"/></svg></div>
-            <div><div class="cert-name">AWS Certified Data Engineer – Associate</div><div class="cert-issuer">Amazon Web Services</div></div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.3 7 21l5-3 5 3-2-6.7"/></svg></div>
-            <div><div class="cert-name">SnowPro Advanced: Data Engineer</div><div class="cert-issuer">Snowflake</div></div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.3 7 21l5-3 5 3-2-6.7"/></svg></div>
-            <div><div class="cert-name">Google Cloud Professional Data Engineer</div><div class="cert-issuer">Google Cloud</div></div>
+      <div class="credentials-wrap">
+        <div class="reveal">
+          <div class="cred-block-title">Certifications</div>
+          <div class="cert-list">
+            <div class="cert-item">
+              <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.3 7 21l5-3 5 3-2-6.7"/></svg></div>
+              <div><div class="cert-name">Databricks Certified Data Engineer Professional</div><div class="cert-issuer">Databricks</div></div>
+              <span class="cert-mark">Certified</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.3 7 21l5-3 5 3-2-6.7"/></svg></div>
+              <div><div class="cert-name">AWS Certified Data Engineer – Associate</div><div class="cert-issuer">Amazon Web Services (AWS)</div></div>
+              <span class="cert-mark">Certified</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.3 7 21l5-3 5 3-2-6.7"/></svg></div>
+              <div><div class="cert-name">SnowPro Advanced: Data Engineer</div><div class="cert-issuer">Snowflake</div></div>
+              <span class="cert-mark">Certified</span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.3 7 21l5-3 5 3-2-6.7"/></svg></div>
+              <div><div class="cert-name">Google Cloud Professional Data Engineer</div><div class="cert-issuer">Google Cloud</div></div>
+              <span class="cert-mark">Certified</span>
+            </div>
           </div>
         </div>
-        <div class="edu-card reveal">
-          <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.2 2.7 3 6 3s6-1.8 6-3v-5"/><line x1="22" y1="9" x2="22" y2="15"/></svg></div>
-          <div><div class="cert-name">Bachelor of Science in Computer Sciences</div><div class="cert-issuer">Education</div></div>
+        <div class="reveal">
+          <div class="cred-block-title">Education</div>
+          <div class="edu-item">
+            <div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.2 2.7 3 6 3s6-1.8 6-3v-5"/><line x1="22" y1="9" x2="22" y2="15"/></svg></div>
+            <div><div class="cert-name">Bachelor of Science in Computer Sciences</div><div class="cert-issuer">Education</div></div>
+          </div>
         </div>
       </div>
     </div>
